@@ -47,7 +47,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-            if not pmpermit_sql.is_approved(chat.id):
+            if not pmpermits_sql.is_approved(chat.id):
                 if chat.id in PM_WARNS:
                     del PM_WARNS[chat.id]
                 if chat.id in PREV_REPLY_MESSAGE:
@@ -64,7 +64,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             return
         chat = await event.get_chat()
         if event.is_private:
-            if not pmpermit_sql.is_approved(chat.id):
+            if not pmpermits_sql.is_approved(chat.id):
                 if not chat.id in PM_WARNS:
                     pmpermit_sql.approve(chat.id, "outgoing")
                     bruh = "__Added user to approved pms cuz outgoing message >~<__"
@@ -182,7 +182,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if PM_ON_OFF == "DISABLE":
             return
 
-        if not pmpermit_sql.is_approved(chat_id):
+        if not pmpermits_sql.is_approved(chat_id):
             # pm permit
             await do_pm_permit_action(chat_id, event)
 
