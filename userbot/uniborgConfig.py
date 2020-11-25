@@ -99,6 +99,8 @@ if ENV:
             t_file.write(AUTH_TOKEN_DATA)
             t_file.close()
         YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
+        PM_PERMIT_GROUP_ID = os.environ.get("PM_PERMIT_GROUP_ID", None)
+
         GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
         #MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
