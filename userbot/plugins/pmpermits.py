@@ -53,7 +53,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 if chat.id in PREV_REPLY_MESSAGE:
                     await PREV_REPLY_MESSAGE[chat.id].delete()
                     del PREV_REPLY_MESSAGE[chat.id]
-                pmpermit_sql.approve(chat.id, reason)
+                pmpermits_sql.approve(chat.id, reason)
                 await event.edit("Approved to pm [{}](tg://user?id={})".format(firstname, chat.id))
                 await asyncio.sleep(3)
                 await event.delete()
@@ -66,7 +66,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         if event.is_private:
             if not pmpermits_sql.is_approved(chat.id):
                 if not chat.id in PM_WARNS:
-                    pmpermit_sql.approve(chat.id, "outgoing")
+                    pmpermits_sql.approve(chat.id, "outgoing")
                     bruh = "__Added user to approved pms cuz outgoing message >~<__"
                     rko = await borg.send_message(event.chat_id, bruh)
                     await asyncio.sleep(3)
@@ -104,8 +104,8 @@ if Var.PRIVATE_GROUP_ID is not None:
           if chat.id == 1289422521:
             await event.edit("Sorry, I Can't Disapprove My Master")
           else:
-            if pmpermit_sql.is_approved(chat.id):
-                pmpermit_sql.disapprove(chat.id)
+            if pmpermits_sql.is_approved(chat.id):
+                pmpermits_sql.disapprove(chat.id)
                 await event.edit("Disapproved [{}](tg://user?id={})".format(firstname, chat.id))
                 
     
@@ -114,7 +114,7 @@ if Var.PRIVATE_GROUP_ID is not None:
     async def approve_p_m(event):
         if event.fwd_from:
             return
-        approved_users = pmpermit_sql.get_all_approved()
+        approved_users = pmpermits_sql.get_all_approved()
         APPROVED_PMs = "Current Approved PMs\n"
         if len(approved_users) > 0:
             for a_user in approved_users:
@@ -232,8 +232,8 @@ async def hehehe(event):
         return
     chat = await event.get_chat()
     if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
-            pmpermit_sql.approve(chat.id, "**My Boss Is Best🔥**")
+        if not pmpermits_sql.is_approved(chat.id):
+            pmpermits_sql.approve(chat.id, "**My Boss Is Best🔥**")
             await borg.send_message(chat, "**Boss Meet My Creator he made me..he is the best you know..@peru_monster **")
             
             
