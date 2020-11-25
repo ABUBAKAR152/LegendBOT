@@ -38,7 +38,7 @@ LWARN = ("**This is your last warning. DO NOT send another message else you will
 async def _(event):
     chat_id = event.from_id
     userid = event.sender_id
-    if not pmpermit_sql.is_approved(chat_id):
+    if not pmpermits_sql.is_approved(chat_id):
         chat = await event.get_chat()
         if event.fwd_from:
             return
