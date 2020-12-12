@@ -1,4 +1,4 @@
-# Guys we are shifted into LEGEND BOT 2.0
+# Guys WE Are Shifted Into LEGEND BOT 2.0
 [REPO VERSION 2.0](https://github.com/legendx22/LEGEND-BOT)
 
 # LegendBOT
