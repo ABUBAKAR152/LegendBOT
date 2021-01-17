@@ -1,5 +1,5 @@
 # Guys WE Are Shifted Into LEGEND BOT 2.0
-[REPO VERSION 2.0](https://github.com/legendx22/LEGEND-BOT)
+## [REPO VERSION 2.0](https://github.com/legendx22/LEGEND-BOT)
 
 # LegendBOT
 
